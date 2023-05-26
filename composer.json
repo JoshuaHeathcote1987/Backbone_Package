@@ -1,0 +1,23 @@
+{
+    "name": "jdh/backbone",
+    "description": "A simple database manager.",
+    "type": "project",
+    "require": {
+        
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jdh\\Backbone\\": "src/"
+        },
+        "classmap": [
+            "src/models"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Joshua Heathcote"
+        }
+    ],
+    "minimum-stability": "dev"
+}

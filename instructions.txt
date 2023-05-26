@@ -1,0 +1,68 @@
+1	Install Laravel, Inertia, and React.
+
+	```
+		composer create-project laravel/laravel example-app
+		composer require  laravel/breeze  --dev
+		php artisan  breeze:install  react
+	```
+
+2	Add 'Backbone' to your composer.json file.
+
+	```
+		composer.json
+
+		"autoload": {
+        		"psr-4": {
+            		"App\\": "app/",
+            		"Database\\Factories\\": "database/factories/",
+            		"Database\\Seeders\\": "database/seeders/",
+            		"JDH\\Backbone\\": "vendor/jdh/backbone/src/"
+        		}
+    		},
+	```
+
+3	Add 'Backbone' to your config app file.
+
+	```
+		config\app.php
+
+		'providers' => ServiceProvider::defaultProviders()->merge([
+        		/*
+         		* Package Service Providers...
+         		*/
+
+        		/*
+         		* Application Service Providers...
+         		*/
+        		App\Providers\AppServiceProvider::class,
+        		App\Providers\AuthServiceProvider::class,
+        		// App\Providers\BroadcastServiceProvider::class,
+        		App\Providers\EventServiceProvider::class,
+        		App\Providers\RouteServiceProvider::class,
+        		JDH\Backbone\BackboneServiceProvider::class,
+    		])->toArray(),
+	```
+
+4	Run composer update.
+
+	```
+		composer update
+	```
+
+5	Run npm.
+
+	```
+		npm install preline
+	```
+
+6	Add content and plugin to your tailwind config file.
+
+	```
+		module.exports = {  content: [      'node_modules/preline/dist/*.js',  ],  plugins: [      require('preline/plugin'),  ],}
+	```
+
+7	Add import preline to your app.js file.
+
+	```
+		import('preline')
+	```

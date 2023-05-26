@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 
 // Alerts
-import SuccessAlert from '@/Components/Preline/AlertSection/Success/Index';
+import SuccessAlert from '../../Components/Preline/AlertSection/Success/Index';
 
 // Icons
 import { TbStars } from 'react-icons/tb';

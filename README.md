@@ -1,12 +1,12 @@
-#Backbone
+# Backbone
 
-##About
+## About
 
 This project was created using Laravel, InertiaJS, ReactJS and was created to save the user time when dealing with table data for that specific website.
 
-##Getting Started
+## Getting Started
 
-###1	Install Laravel, Inertia, and React.
+### 1.	Install Laravel, Inertia, and React.
 
 	```
 		composer create-project laravel/laravel example-app
@@ -14,7 +14,7 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
 		php artisan  breeze:install  react
 	```
 
-###2	Add 'Backbone' to your composer.json file.
+### 2.	Add 'Backbone' to your composer.json file.
 
 	```
 		composer.json
@@ -40,7 +40,7 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
     		},
 	```
 
-###3	Add 'Backbone' to your config app file.
+### 3.	Add 'Backbone' to your config app file.
 
 	```
 		config\app.php
@@ -62,44 +62,45 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
     		])->toArray(),
 	```
 
-###4	Run composer update.
+### 4.	Run composer update.
 
 	```
 		composer update
 	```
 
-###5	Run npm.
+### 5.	Run npm.
 
 	```
 		npm install preline
 	```
 
-###6	Add content and plugin to your tailwind config file.
+### 6.	Add content and plugin to your tailwind config file.
 
 	```
 		module.exports = {  content: [      'node_modules/preline/dist/*.js',  ],  plugins: [      require('preline/plugin'),  ],}
 	```
 
-###7	Add import preline to your app.js file.
+### 7.	Add import preline to your app.js file.
 
 	```
 		import('preline')
 	```
 
-###8	Run backbone command
+### 8.	Run backbone command
 
 	```
 		php artisan set:up
 	```
 
-###9	Run reactjs icon
+### 9.	Run reactjs icon
 
 	```
 		npm install react-icons --save
 	```
 
-###10	Migration
+### 10.	Migration
 	
 	```
 		php artisan migrate:fresh
 	```
+

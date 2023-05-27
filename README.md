@@ -5,6 +5,8 @@
 This project was created using Laravel, InertiaJS, ReactJS and was created to save the user time when dealing with table data for that specific website.
 The package gui for table within the database and enables you to create, read, update, and delete. 
 
+Once the setup is complete you can open back bone by going to '/backbone/table' with in the url.
+
 In the future and will implement a relational system so that the user can implement relationships through the gui.
 
 ## Getting Started

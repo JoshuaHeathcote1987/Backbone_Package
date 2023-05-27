@@ -2,14 +2,17 @@
 
 ## About
 
-This project was created using Laravel, InertiaJS, ReactJS and was created to save the user time when dealing with table data for that specific website.
-The package is a gui for the table in question table within the database and enables you to create, read, update, and delete. 
+This project is a time-saving solution developed using Laravel, InertiaJS, and ReactJS, specifically designed to streamline the management of table data for a particular website. Its primary objective is to enhance user efficiency when working with database tables.
 
-Once the setup is complete you can open back bone by going to '/backbone/table' with in the url, this will bring up a page displaying all the tables within the db you're currently connecting to. Clicking any of the tables will present the user with the table as well as its data. 
+This package serves as a user-friendly graphical interface (GUI) for the targeted table within the database. It facilitates essential CRUD (Create, Read, Update, Delete) operations, empowering users to seamlessly interact with the data.
 
-One import thing to mention is that the column headings can be selected for display, but for this to work the user has to be logged in.
+Upon completing the setup process, users can access the Backbone GUI by navigating to '/backbone/table' within the URL. This action triggers the display of a page showcasing all the tables within the currently connected database. By clicking on any of these tables, users gain access to the respective table's data, presented in an organized format.
 
-In the future and will implement a relational system so that the user can implement relationships through the gui.
+Notably, the GUI allows users to selectively choose which column headings they wish to display. However, it is important to highlight that this functionality requires users to be logged in for proper operation and security purposes.
+
+As part of future development, an innovative relational system is planned for implementation. This system will empower users to establish and manage relationships directly through the GUI, further enhancing the efficiency and flexibility of the solution.
+
+Overall, this project leverages the power of Laravel, InertiaJS, and ReactJS to provide an intuitive and efficient means of handling table data within a specified website. It offers an accessible GUI, essential CRUD operations, and promises future advancements through the inclusion of a relational system.
 
 ## Getting Started
 

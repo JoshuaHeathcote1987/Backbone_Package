@@ -8,15 +8,12 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
 
 ### 1.	Install Laravel, Inertia, and React.
 
-	```
 		composer create-project laravel/laravel example-app
 		composer require  laravel/breeze  --dev
 		php artisan  breeze:install  react
-	```
 
 ### 2.	Add 'Backbone' to your composer.json file.
 
-	```
 		composer.json
 
 		"require": {
@@ -38,11 +35,9 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
             		"JDH\\Backbone\\": "vendor/jdh/backbone/src/"
         		}
     		},
-	```
 
 ### 3.	Add 'Backbone' to your config app file.
 
-	```
 		config\app.php
 
 		'providers' => ServiceProvider::defaultProviders()->merge([
@@ -60,47 +55,32 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
         		App\Providers\RouteServiceProvider::class,
         		JDH\Backbone\BackboneServiceProvider::class,
     		])->toArray(),
-	```
 
 ### 4.	Run composer update.
 
-	```
 		composer update
-	```
 
 ### 5.	Run npm.
 
-	```
 		npm install preline
-	```
 
 ### 6.	Add content and plugin to your tailwind config file.
 
-	```
 		module.exports = {  content: [      'node_modules/preline/dist/*.js',  ],  plugins: [      require('preline/plugin'),  ],}
-	```
 
 ### 7.	Add import preline to your app.js file.
 
-	```
 		import('preline')
-	```
 
 ### 8.	Run backbone command
 
-	```
 		php artisan set:up
-	```
 
 ### 9.	Run reactjs icon
 
-	```
 		npm install react-icons --save
-	```
 
 ### 10.	Migration
 	
-	```
 		php artisan migrate:fresh
-	```
 

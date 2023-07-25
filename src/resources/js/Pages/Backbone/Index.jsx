@@ -43,7 +43,7 @@ export default function Tables({ tables }) {
                         {objects.filter((find) => {
                             return search.trim() === '' ? find : find.toLowerCase().includes(search.toLowerCase());
                         }).map((obj, key) => (
-                            <div key={key} className="flex flex-col border border-gray-200 text-center rounded-xl p-8 hover:shadow-xl hover:border-blue-600 hover:-translate-y-3 transition">
+                            <div key={key} className="flex flex-col border border-gray-200 text-center rounded-xl p-8 hover:shadow-xl hover:border-blue-600 transition">
                                 <h4 className="text-4xl text-gray-800 dark:text-gray-200 mx-auto pb-3"><BsDatabaseFillGear /></h4>
                                 <h4 className="font-medium text-lg text-gray-800 dark:text-gray-200 py-3">{obj}</h4>
                                 <hr className="mt-4" />

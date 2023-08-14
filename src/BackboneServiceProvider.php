@@ -20,6 +20,9 @@ class BackboneServiceProvider extends ServiceProvider
         }
         $this->app->make('JDH\Backbone\TableController');
         $this->app->make('JDH\Backbone\SettingsController');
+        $this->app->make('JDH\Backbone\RelationController');
+        $this->app->make('JDH\Backbone\DatabaseCreator');
+        
         // $this->loadViewsFrom(__DIR__.'/resources/js/Pages', 'backbone');
     }
 

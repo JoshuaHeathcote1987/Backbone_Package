@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
-
 use Inertia\Inertia;
 use Carbon\Carbon;
 
@@ -21,14 +20,11 @@ class TableController extends Controller
     public function index()
     {
         $tables = Schema::getAllTables();
-
         $tableNames = [];
-
         foreach ($tables as $table) {
             $values = array_values((array) $table);
             $tableNames[] = $values[0];
         }
-
         return Inertia::render('Backbone/Index', ['tables' => $tableNames]);
     }
 
@@ -70,6 +66,15 @@ class TableController extends Controller
                         $data[$key] = bcrypt($value);
                     }
                     break;
+                case 'image':
+                    if ($request->hasFile('image')) {
+                        $filename = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+                        $path = $request->file('image')->storeAs('public/images', $filename);
+                        $path = substr_replace($path, '/storage', 0, 6);
+                        $data['image'] = $path;
+                    }
+
+                    break;
                 default:
                     // handle default case
                     break;
@@ -87,7 +92,7 @@ class TableController extends Controller
     {
         // Todo::  You will have to check for sensitive data and block them from being sent down the pipe, even administration should have access to such sensitive data.
 
-        if(Auth::id()) {
+        if (Auth::id()) {
             $excludes = Settings::where('user_id', Auth::id())
                 ->where('table_name', $tableName)
                 ->get();
@@ -111,18 +116,18 @@ class TableController extends Controller
         $id = $data['id'];
         unset($data['table'], $data['id']);
         $rules = [];
-    
+
         // Here general rules will have to be set as well as a switch statement to make sure that specific rules are set.
         foreach ($data as $key => $value) {
             $rules[$key] = 'required';
         }
-    
+
         $validator = Validator::make($data, $rules)->passes();
-    
+
         if (!$validator) {
             return response()->json(['message' => 'Validation failed, please check your input.']);
         }
-    
+
         DB::table($table)->where('id', $id)->update($data);
         return response()->json(['message' => 'Success!']);
     }

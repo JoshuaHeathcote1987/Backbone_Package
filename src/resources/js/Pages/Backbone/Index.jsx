@@ -73,7 +73,7 @@ export default function Tables({ tables }) {
                     <div className="bg-gradient-to-b relative from-violet-600/[.15] via-transparent">
                         {/* <img className="absolute left-1 top-1" src="/storage/imgs/icons/backbone.png" width="100px" /> */}
                         <IoMdAddCircle className="absolute left-3 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-create-database" />
-                        <BsDatabaseFillDown className="absolute left-16 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-create-database" />
+                        {/* <BsDatabaseFillDown className="absolute left-16 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-create-database" /> */}
                         <ImSearch className="absolute right-3 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-search" />
                         <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
                             <div className="max-w-3xl text-center mx-auto">

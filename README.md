@@ -69,11 +69,8 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
     		])->toArray(),
 	```
 
-### 4.	Run composer update.
+	note to me above step auto dont on set up
 
-	```
-		composer update
-	```
 
 ### 5.	Run npm.
 
@@ -104,6 +101,13 @@ This project was created using Laravel, InertiaJS, ReactJS and was created to sa
 	```
 		npm install react-icons --save
 	```
+
+### 4.	Run composer update.
+
+	```
+		composer update
+	```
+
 
 ### 10.	Migration
 	

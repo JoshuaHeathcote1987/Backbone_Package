@@ -30,7 +30,7 @@ export default function TableRelationSelection({ icon, objects, selectedTable, r
             local_table: selectedTable,
             relation_type: relationType,
         }));
-    }, [selectedTable]);
+    }, [selectedTable, relationType]);
 
     function handleSubmit(e) {
         e.preventDefault();

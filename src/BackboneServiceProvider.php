@@ -18,6 +18,7 @@ class BackboneServiceProvider extends ServiceProvider
                 __DIR__.'/database/migrations' => database_path('migrations'),
             ], 'backbone');
         }
+        $this->app->make('JDH\Backbone\TablesController');
         $this->app->make('JDH\Backbone\TableController');
         $this->app->make('JDH\Backbone\SettingsController');
         $this->app->make('JDH\Backbone\RelationController');

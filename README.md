@@ -1,27 +1,8 @@
 # Backbone
 
-1. Preline Components must have a soft link inside the component folder. (Not sure what I was talking about)
-2. Check for input type for all input types, such as 
-	checkbox
-	color
-	date
-	datetime-local
-	email
-	file			-> you just do file type for image, you should switch them. Do it in the morning
-	hidden
-	image
-	month
-	number
-	password
-	radio
-	range
-	reset
-	search
-	submit
-	tel
-	time
-	url
-	week
+Create db
+Delete db
+many to many creation of middle table
 
 
 # Backbone

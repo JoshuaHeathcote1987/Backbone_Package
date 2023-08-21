@@ -40,15 +40,22 @@ export default function Create({ }) {
         e.preventDefault();
         let name = tableName;
         let data = buildObject();
-        data = { table: name, ...data }; 
-    
+        data = { table: name, ...data };
+
         const formData = new FormData();
         formData.append('table', name);
-        formData.append('image', image.files[0]);
+
+        const imageInput = document.getElementById('image');
+
+        // Check if image is selected
+        if (imageInput && image.files.length > 0) {
+            formData.append('image', image.files[0]);
+        }
+
         Object.keys(data).forEach(key => {
             formData.append(key, data[key]);
         });
-    
+
         axios.post('/backbone/table', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -65,6 +72,7 @@ export default function Create({ }) {
                 console.log(error);
             });
     }
+
 
 
     function capitalizePlural() {
@@ -146,7 +154,7 @@ export default function Create({ }) {
                             <button type="button" className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-overlay="#hs-modal-create">
                                 Close
                             </button>
-                            <button type="submit" className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-600 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                            <button type="submit" className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
                                 Create
                             </button>
                         </div>

@@ -4,27 +4,36 @@ import { Head, Link } from '@inertiajs/react';
 // Icons
 import { BsDatabaseFillGear } from 'react-icons/bs';
 import { ImSearch } from 'react-icons/im';
-import { BsDatabaseAdd } from 'react-icons/bs';
-import { BsDatabaseDash } from 'react-icons/bs';
+import { IoMdAddCircle } from 'react-icons/io';
+import { AiFillMinusCircle } from 'react-icons/ai';
 import { GiRelationshipBounds } from 'react-icons/gi';
 import { TbRelationManyToMany } from 'react-icons/tb';
 import { TbRelationOneToMany } from 'react-icons/tb';
 import { TbRelationOneToOne } from 'react-icons/tb';
+import { GiFamilyTree } from 'react-icons/gi';
+import { RxCross1 } from 'react-icons/rx';
+import { BsDatabaseFillDown } from 'react-icons/bs';
+
 
 // Partials
 import Search from './Partials/Search';
 import TableRelationSelection from './Partials/TableRelationSelection';
+import TableCreate from './Partials/TableCreate';
+import TableDelete from './Partials/TableDelete';
 
 export default function Tables({ tables }) {
 
     const [objects, setObjects] = useState(tables);
     const [search, setSearch] = useState('');
-
+    const [destroy, setDestroy] = useState('');
     const [icon, setIcon] = useState(<TbRelationManyToMany />);
 
     const [relationTableOne, setRelationTableOne] = useState('');
     const [relationTableTwo, setRelationTableTwo] = useState('');
     const [relationType, setRelationType] = useState('');
+
+    const [showDelete, setShowDelete] = useState(false);
+
 
     function manyToMany(obj) {
         setRelationTableOne(obj);
@@ -44,17 +53,27 @@ export default function Tables({ tables }) {
         setIcon(<TbRelationOneToOne />);
     }
 
+    function belongsTo(obj) {
+        setRelationTableOne(obj)
+        setRelationType('bt');
+        setIcon(<GiFamilyTree />);
+    }
+
     return (
         <>
-            <Head title="Tables" />
-            <TableRelationSelection icon={<TbRelationManyToMany />} objects={objects} selectedTable={relationTableOne} relationType={relationType} />
+            {/* Models */}
+            <TableRelationSelection icon={icon} objects={objects} selectedTable={relationTableOne} relationType={relationType} />
+            <TableCreate />
+            <TableDelete tableName={destroy} />
             <Search setSearch={setSearch} />
+            {/* End Models */}
+            <Head title="Tables" />
             <div className="p-1.5">
                 <div className="bg-slate-900">
                     <div className="bg-gradient-to-b relative from-violet-600/[.15] via-transparent">
                         {/* <img className="absolute left-1 top-1" src="/storage/imgs/icons/backbone.png" width="100px" /> */}
-                        <BsDatabaseAdd className="absolute left-3 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-search" />
-                        <BsDatabaseDash className="absolute left-16 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-search" />
+                        <IoMdAddCircle className="absolute left-3 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-create-database" />
+                        <BsDatabaseFillDown className="absolute left-16 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-create-database" />
                         <ImSearch className="absolute right-3 bottom-3 text-4xl text-white hover:scale-150 transition" data-hs-overlay="#hs-modal-search" />
                         <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
                             <div className="max-w-3xl text-center mx-auto">
@@ -77,9 +96,11 @@ export default function Tables({ tables }) {
                             return search.trim() === '' ? find : find.toLowerCase().includes(search.toLowerCase());
                         }).map((obj, key) => (
                             <div key={key} className="relative flex flex-col border border-gray-200 text-center rounded-xl p-8 hover:shadow-xl hover:border-blue-600 transition">
-                                <TbRelationManyToMany className="absolute right-8 top-8 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => manyToMany(obj)} data-hs-overlay="#hs-modal-table-relation" />
-                                <TbRelationOneToMany className="absolute right-8 top-16 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => oneToMany(obj)} data-hs-overlay="#hs-modal-table-relation" />
-                                <TbRelationOneToOne className="absolute right-8 top-24 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => oneToOne(obj)} data-hs-overlay="#hs-modal-table-relation" />
+                                <RxCross1 className="absolute left-8 top-5 text-3xl text-red-400 hover:scale-150 hover:text-red-500 transition" onClick={() => setDestroy(obj)} data-hs-overlay="#hs-danger-delete" />
+                                <TbRelationManyToMany className="absolute right-8 top-4 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => manyToMany(obj)} data-hs-overlay="#hs-modal-table-relation" />
+                                <TbRelationOneToMany className="absolute right-8 top-12 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => oneToMany(obj)} data-hs-overlay="#hs-modal-table-relation" />
+                                <TbRelationOneToOne className="absolute right-8 top-20 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => oneToOne(obj)} data-hs-overlay="#hs-modal-table-relation" />
+                                <GiFamilyTree className="absolute right-8 top-28 text-3xl hover:scale-150 hover:text-lime-600 transition" onClick={() => belongsTo(obj)} data-hs-overlay="#hs-modal-table-relation" />
                                 <h4 className="text-4xl text-gray-800 dark:text-gray-200 mx-auto pb-3"><BsDatabaseFillGear /></h4>
                                 <h4 className="font-medium text-lg text-gray-800 dark:text-gray-200 py-3">{obj}</h4>
                                 <hr className="mt-4" />

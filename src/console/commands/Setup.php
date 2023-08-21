@@ -19,12 +19,14 @@ class Setup extends Command
         $this->filesystem = $filesystem;
     }
 
+    // There is a big problem you have to try and fix.
+
     public function handle()
     {
-        $this->updateComposerJson();
-        $this->updateAutoloadPsr4();
-        $this->addProviderToConfig();
-        $this->updateTailwindConfig();
+        // $this->updateComposerJson();
+        // $this->updateAutoloadPsr4();
+        // $this->addProviderToConfig();
+        // $this->updateTailwindConfig();
         $this->createSoftLink();
     }
     
